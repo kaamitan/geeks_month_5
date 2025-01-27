@@ -30,6 +30,9 @@ class Movie(models.Model):
         verbose_name_plural = "Movies"
 
 
+STARTS = [(i, str(i)) for i in range(1, 6)]
+
+
 class Review(models.Model):
     text = models.TextField()
     movie = models.ForeignKey(
@@ -37,9 +40,10 @@ class Review(models.Model):
         on_delete=models.CASCADE,
         related_name="reviews",
     )
+    stars = models.IntegerField(choices=STARTS, null=True, blank=True)
 
     def __str__(self):  # pyright: ignore
-        return f"Review of {self.movie.title}" if self.movie else "No movie assigned"
+        return f"Review of {self.movie.title}" if self.movie else "No movie assigned"  # pyright: ignore
 
     class Meta:
         verbose_name = "Review"
