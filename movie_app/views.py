@@ -1,4 +1,12 @@
 # from django.shortcuts import render
+
+# """
+# так как уже присутствут тут
+# -- Update
+# -- Create
+# 3 домашка готова 🥳🥳🥳
+# """
+
 from rest_framework import generics
 from .models import Director, Movie, Review
 from .serializers import MovieSerializer, ReviewSerializer, DirectorSerializer
